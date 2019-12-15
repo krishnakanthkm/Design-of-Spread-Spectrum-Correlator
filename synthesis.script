@@ -1,0 +1,22 @@
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+read_sverilog ss.v
+create_clock clk -name clk -period 2.25
+set_propagated_clock clk
+set_clock_uncertainty 0.25 clk
+set_propagated_clock clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port reset]]
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+set_output_delay 0.6 -clock clk [all_outputs]
+set_fix_hold [ get_clocks clk ]
+set_output_delay 0.3 -clock clk [all_outputs]
+set_max_delay 2.1 -from [all_inputs] -to [all_outputs]
+compile_ultra
+create_clock clk -name clk -period 3.0
+
+update_timing
+report_timing -max_paths 5
+write -hierarchy -format verilog -output ss_gates.v
+quit

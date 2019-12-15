@@ -1,0 +1,9 @@
+ss script run started on Thu May  9 22:00:20 2019
+
+Run with a clock period of 3.0
+options syn False gates False
+VCS simulation worked
+NCverilog simulation worked
+Synthesis finished OK
+Gate level simulation worked
+Completed the ss run

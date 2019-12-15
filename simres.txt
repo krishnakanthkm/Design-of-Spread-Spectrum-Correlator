@@ -1,0 +1,83 @@
+ncverilog: 14.10-p001: (c) Copyright 1995-2014 Cadence Design Systems, Inc.
+file: tbss_gates.sv
+	module worklib.ss:v
+		errors: 0, warnings: 0
+    int pcnt=0;
+            |
+ncvlog: *W,VARIST (tbss_gates.sv,85|12): Local static variable with initializer requires 'static' keyword.
+    string tfn="/home/morris/287/s19/ss/sst0.txt";
+              |
+ncvlog: *W,VARIST (tbss_gates.sv,86|14): Local static variable with initializer requires 'static' keyword.
+	module worklib.top:sv
+		errors: 0, warnings: 2
+ncvlog: *W,LIBNOU: Library "/apps/toshiba/sjsu/verilog/tc240c" given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.ss:v <0x0563a1af>
+			streams:  23, words: 21300
+		worklib.top:sv <0x1c9376ba>
+			streams:   7, words: 19567
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                  2       2
+		Registers:              116     116
+		Scalar wires:             6       -
+		Vectored wires:           5       -
+		Always blocks:           10      10
+		Initial blocks:           5       5
+		Cont. assignments:        0       3
+		Pseudo assignments:       1       1
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+SVSEED default: 1
+ncsim> source /apps/cadence/INCISIV141/tools/inca/files/ncsimrc
+ncsim> run
+# a test case for working with ss
+
+Checking for 000ffc00
+Checking for fff00400
+Checking for 000ffc00
+Checking for 000ffc00
+Checking for fff00400
+Checking for fff00400
+Checking for 000ffc00
+# nf=69 msg=[1, -1, -1, -1, -1, -1, -1, 1, -1, 1, -1]
+
+Checking for 000bcae2
+Checking for fff420dd
+Checking for fff437eb
+Checking for fff438b2
+Checking for fff4368e
+Checking for fff438ea
+Checking for fff44030
+Checking for 000bd2f6
+Checking for fff429f7
+Checking for 000bd793
+Checking for fff4393d
+# nf=83 msg=[1, -1, 1, 1, -1, -1, 1, -1]
+
+Checking for 00068b8a
+Checking for fff97481
+Checking for 00067b5e
+Checking for 00067cea
+Checking for fff96606
+Checking for fff97a06
+Checking for 000680c5
+Checking for fff97a6c
+
+
+
+Great Joy is found in completing the test
+
+
+
+Simulation complete via $finish(1) at time 504771 NS + 0
+./tbss_gates.sv:108                         $finish();
+ncsim> exit

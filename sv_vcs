@@ -1,0 +1,7 @@
+#!/usr/bin/csh
+
+source /apps/design_environment.csh
+vcs -sverilog $argv
+if ($status != 0) exit $status
+./simv 
+
